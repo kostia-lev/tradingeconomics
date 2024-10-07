@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import {Chart, registerables} from 'chart.js';
 import {ChartData, ResponseItem} from "./types";
 import {api} from "./endpoints";
+import {key} from "./keys";
 
 Chart.register(...registerables);
 
@@ -21,7 +22,7 @@ const GdpChart: React.FC = () => {
 
     try {
       const response1 =
-          await fetch(`${api}/historical/country/mexico,sweden/indicator/gdp/${startDate}/${endDate}?c=51acad49da6e451:u1jhq0yqsbmw5nz`);
+          await fetch(`${api}/historical/country/mexico,sweden/indicator/gdp/${startDate}/${endDate}?c=${key}`);
 
       const dataLoc = await response1.json();
       const labels: string[] = [], dataSweden: number[] = [], dataMexico: number[] = []
